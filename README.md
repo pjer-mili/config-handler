@@ -94,7 +94,7 @@ print(config.getboolean('app2', 'send_email'))
 # >>> False
 ``` 
  
-`.read()` returns `ConfigParser` objects from pythons native [Configuration file parser lib](https://docs.python.org/3/library/configparser.html)  
+`.read()` returns `ConfigParser` objects from python's native [Configuration file parser lib](https://docs.python.org/3/library/configparser.html)  
 
 #### Scenario #3  
 
@@ -122,6 +122,5 @@ After the sync, config.ini file should look like this:
 
 ![Config file](docs/images/config_file_3.png)  
 
-So, what user changes stays or adds stays in config.ini.  
-
+So, what user changes or adds stays in config.ini.  
 Everything new that was added in config.ini.template was added in config.ini as well.
