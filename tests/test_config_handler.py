@@ -44,7 +44,6 @@ class TestConfigHandler(unittest.TestCase):
                      'input_path': 'path/to/project/root/input/app1',
                      'track_user_activity': 'false',
                      'authenticate_user': 'true'}
-        print(dict(config['app1']))
         self.assertEqual(dict(config['app1']), app1_dict)
 
         app2_dict = {'front_page_title': 'Hello World!',
