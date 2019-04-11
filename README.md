@@ -84,8 +84,11 @@ print(dict(config['DEFAULT']))
 print(dict(config['app1']))
 # >>> {'send_email': 'false', 'line_height': '12', 'input_path': 'path/to/project/root/input/app1', 'authenticate_user': 'true'}
 
-print(config['DEFAULT', 'send_email'])
+print(config['DEFAULT']['send_email'])
 # >>> 'true'
+
+print(config['app1']['front_page_title'])
+# >>> 'Hello World!'
 
 print(config.getboolean('DEFAULT', 'send_email'))
 # >>> True
