@@ -127,3 +127,15 @@ After the sync, config.ini file should look like this:
 
 So, what user changes or adds stays in config.ini.  
 Everything new that was added in config.ini.template was added in config.ini as well.
+
+#### Scenario #4  
+
+You can sync and read at the same time: 
+  
+```python
+from config_handler import ConfigHandler
+
+config = ConfigHandler('./config.ini').sync({...}).read()
+
+...
+``` 
