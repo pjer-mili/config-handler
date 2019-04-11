@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='Config Handler',
-    version='0.1.0.dev0',
+    version='0.1.0',
 
     description='Handle config files in your projects the easy way',
     long_description=readme(),

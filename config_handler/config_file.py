@@ -28,7 +28,8 @@ class ConfigFile(metaclass=ABCMeta):
         :return: True or False
         """
 
-        return os.path.exists(self._config_handler.config_path)
+        return self._config_handler.config_path and \
+               os.path.exists(self._config_handler.config_path)
 
     def _read_config_file(self) -> ConfigParser:
         """Reads contents of the config file for internal purposes.

@@ -1,5 +1,4 @@
 from collections import namedtuple
 
 
-ConfigKeys = namedtuple('ConfigKeys', ['DEFAULT'])\
-    ('DEFAULT')
+ConfigKeys = namedtuple('ConfigKeys', ['DEFAULT'])('DEFAULT')
