@@ -139,3 +139,20 @@ config = ConfigHandler('./config.ini').sync({...}).read()
 
 ...
 ``` 
+
+## Exception handling
+
+```python
+from config_handler import (ConfigHandler, 
+                            ConfigHandlerException,
+                            ConfigHandlerFileReadException)
+
+try:
+    config = ConfigHandler('./config.ini').sync({...}).read()
+
+except ConfigHandlerFileReadException:
+    """Read exceptions"""
+
+except ConfigHandlerException:
+    """All Config Handler exceptions"""
+``` 

@@ -1,0 +1,19 @@
+
+[DEFAULT]
+send_email = true
+authenticate_user = true
+track_user_activity = true
+
+[app1]
+send_email = false
+line_height = 12
+input_path = ${project_root_path}/input/app1
+track_user_activity = false
+
+[app2]
+front_page_title = Hello World!
+input_path = ${project_root_path}/input/app2
+
+
+
+
