@@ -62,7 +62,7 @@ template_config_variables = {
 ConfigHandler('./config.ini').sync(template_config_variables)
 ``` 
  
-After this call, config.ini file was created in same directory where config.ini.template is located and should look like this:
+After this call, config.ini file was created in the same directory where config.ini.template is located and should look like this:
 
 ![Config file](docs/images/config_file_1.png)
 
