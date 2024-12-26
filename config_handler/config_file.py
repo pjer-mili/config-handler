@@ -83,7 +83,7 @@ class ConfigFile(metaclass=ABCMeta):
         :return: ConfigParser object
         """
 
-        with open(self._get_template_path()) as f:
+        with open(self._get_template_path(), encoding="utf-8") as f:
             t = Template(f.read())
             template_string = t.safe_substitute(**template_vars)
 
