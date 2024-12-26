@@ -34,7 +34,7 @@ class ConfigHandler:
         config = writer.read_template_file(template_vars)
 
         # merge config template with config
-        config.read(self.config_path)
+        config.read(self.config_path, "utf-8")
 
         # write merged config dict to file
         writer.write_config_file(config)
@@ -52,7 +52,7 @@ class ConfigHandler:
 
         try:
             config = ConfigParser()
-            config.read(self.config_path, "utf-8")
+            config.read(self.config_path)
             return config
 
         except MissingSectionHeaderError:
