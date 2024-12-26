@@ -18,8 +18,7 @@ class ConfigFile(metaclass=ABCMeta):
     """Abstract method for ConfigFile consumers."""
 
     def __init__(self, config_handler: ConfigHandler):
-        """:param config_handler: a ConfigHandler object
-        """
+        """:param config_handler: a ConfigHandler object"""
 
         self._config_handler = config_handler
 
@@ -28,8 +27,9 @@ class ConfigFile(metaclass=ABCMeta):
         :return: True or False
         """
 
-        return self._config_handler.config_path and \
-               os.path.exists(self._config_handler.config_path)
+        return self._config_handler.config_path and os.path.exists(
+            self._config_handler.config_path
+        )
 
     def _read_config_file(self) -> ConfigParser:
         """Reads contents of the config file for internal purposes.
@@ -41,9 +41,7 @@ class ConfigFile(metaclass=ABCMeta):
         if self._check_config_path_exist():
             config.read(self._config_handler.config_path)
         else:
-            config.read_dict({
-                ConfigKeys.DEFAULT: {}
-            })
+            config.read_dict({ConfigKeys.DEFAULT: {}})
 
         return config
 
@@ -54,8 +52,9 @@ class ConfigFile(metaclass=ABCMeta):
         """
 
         if not self._config_handler.template_path:
-            self._config_handler.template_path = \
-                f'{self._config_handler.config_path}.template'
+            self._config_handler.template_path = (
+                f"{self._config_handler.config_path}.template"
+            )
 
         return self._config_handler.template_path
 
@@ -65,7 +64,7 @@ class ConfigFile(metaclass=ABCMeta):
         """
 
         if not self._config_handler.config_path:
-            raise ConfigHandlerFileReadException('Config path not set')
+            raise ConfigHandlerFileReadException("Config path not set")
 
     def check_template_path(self) -> None:
         """Checks whether the config path exists or not.
@@ -73,8 +72,9 @@ class ConfigFile(metaclass=ABCMeta):
         """
 
         if not os.path.exists(self._get_template_path()):
-            msg = f'Template file doesn\'t ' \
-                  f'exist: {self._config_handler.template_path}'
+            msg = (
+                f"Template file doesn't " f"exist: {self._config_handler.template_path}"
+            )
             raise ConfigHandlerFileReadException(msg)
 
     def read_template_file(self, template_vars: Dict) -> ConfigParser:
@@ -102,11 +102,10 @@ class Reader(ConfigFile):
         """
 
         if not self._config_handler.config_path:
-            raise ConfigHandlerFileReadException('Config path not set')
+            raise ConfigHandlerFileReadException("Config path not set")
 
         if not self._check_config_path_exist():
-            msg = f'Config file doesn\'t ' \
-                  f'exist: {self._config_handler.config_path}'
+            msg = f"Config file doesn't " f"exist: {self._config_handler.config_path}"
             raise ConfigHandlerFileReadException(msg)
 
 
@@ -119,12 +118,12 @@ class Writer(ConfigFile):
         """
 
         if not self._config_handler.config_path:
-            raise ConfigHandlerFileReadException('Config path not set')
+            raise ConfigHandlerFileReadException("Config path not set")
 
     def write_config_file(self, config: ConfigParser) -> None:
         """Writes contents into the config file using ConfigParser lib.
         :return: None
         """
 
-        with open(self._config_handler.config_path, 'w') as f:
+        with open(self._config_handler.config_path, "w", encoding="utf-8") as f:
             config.write(f)

@@ -52,7 +52,7 @@ class ConfigHandler:
 
         try:
             config = ConfigParser()
-            config.read(self.config_path)
+            config.read(self.config_path, "utf-8")
             return config
 
         except MissingSectionHeaderError:
