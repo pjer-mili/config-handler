@@ -11,8 +11,7 @@ class ConfigHandler:
     """Config handler class"""
 
     def __init__(self, config_path: AnyStr = None):
-        """:param config_path: a path to actual config file
-        """
+        """:param config_path: a path to actual config file"""
 
         self.template_path = None
         self.config_path = config_path
@@ -53,8 +52,8 @@ class ConfigHandler:
 
         try:
             config = ConfigParser()
-            config.read(self.config_path)
+            config.read(self.config_path, "utf-8")
             return config
 
         except MissingSectionHeaderError:
-            raise ConfigHandlerFileReadException('Missing sections in config')
+            raise ConfigHandlerFileReadException("Missing sections in config")
